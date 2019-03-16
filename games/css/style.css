@@ -1,5 +1,12 @@
 .infobox {
 	background: rgba(203,207,244,0.5);
 	border-style: solid;
-	padding: 10 10 10 10;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+
+.infobox h1 {
+	font-size: medium;
+	font-weight: bold;
 }

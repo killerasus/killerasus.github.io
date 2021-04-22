@@ -18,25 +18,19 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
   <link rel="author" href="humans.txt" />
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/731d241d29.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/custom.js"></script>
 </head>
 
 <body>
@@ -48,7 +42,23 @@
   <div class="container">
 
     <header>
-      <h1>Bruno Ba&egrave;re Pedrazzi Lomba de Araujo, M.Sc. Computer Science, B.Sc. Computer Engineering</h1>
+      <h1>Bruno Ba&egrave;re, M.Sc. Computer Science, B.Sc. Computer Engineering</h1>
+      <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light" id="main-navbar">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="main-nav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+            <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+            <li class="nav-item"><a class="nav-link" href="#games">Games</a></li>
+            <li class="nav-item"><a class="nav-link" href="#rpg">RPG</a></li>
+          </ul>
+        </div>
+      </div>
+      </nav>
     </header>
 
     <div class="row">
@@ -103,7 +113,9 @@
           href="http://www.gamedesignonlinejournal.dad.puc-rio.br/cgi/cgilua.exe/sys/start.htm?infoid=27&sid=2"
           target="_blank">Link</a>]<br />
       </p>
+    </section>
 
+    <section id="publications">
       <h2>Publications:</h2>
       <p>
         Chagas, M. das G. de A., Araujo, B. B. P. L. de, Faria, W. V., Loureiro, C. G., Carmo, M. I. M. M., Donato, N.
@@ -156,6 +168,58 @@
         Inicia&ccedil;&atilde;o Cient&iacute;fica da PUC-Rio, 2007. [<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
         <a href="files/pdf/inf_bruno_baere_pederassi_lomba_araujo.pdf" target="_blank">PDF</a>]
       </p>
+    </section>
+
+    <section id="conferences">
+      <h2>Conferences:</h2>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive">
+            <table class="table" id="conferences">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Venue</th>
+                  <th>Year</th>
+                  <th>Links</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ComFiM: A Cooperative Serious Game to Encourage the Development of Communicative Skills between
+                    Children with Autism</td>
+                  <td>XIII SBGames - Porto Alegre</td>
+                  <td>2014</td>
+                  <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <a
+                      href="files/pdf/presentation_sbgames2014.pdf" target="_blank">PDF</a></td>
+                </tr>
+                <tr>
+                  <td>Dificuldade Adaptativa em Jogos - Considerando jogadores casuais e hardcore</td>
+                  <td>Semana de Ci&ecirc;ncia e Tecnologia - UniRio</td>
+                  <td>2014</td>
+                  <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <a
+                      href="files/pdf/presentation_unirio2014.pdf" target="_blank">PDF</a></td>
+                </tr>
+                <tr>
+                  <td>Evaluating dynamic difficulty adaptivity in shoot'em up games</td>
+                  <td>XII SBGames - S&atilde;o Paulo</td>
+                  <td>2013</td>
+                  <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <a
+                      href="files/pdf/presentation_sbgames2013.pdf" target="_blank">PDF</a></td>
+                </tr>
+                <tr>
+                  <td>Um estudo sobre adaptividade din&acirc;mica de dificuldade em jogos</td>
+                  <td>M.Sc. presentation - PUC-Rio</td>
+                  <td>2012</td>
+                  <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <a href="files/pdf/presentation_defense.pdf"
+                      target="_blank">PDF</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="games">
@@ -298,58 +362,6 @@
                       target="_blank">Link</a> <i class="fa fa-link" aria-hidden="true"></i> <a
                       href="http://web.archive.org/web/20180823075813/http://redboxeditora.com.br/delirios-de-xagyg/"
                       target="_blank">Wayback Machine</a></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="conferences">
-      <h2>Conferences:</h2>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="table-responsive">
-            <table class="table" id="conferences">
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Venue</th>
-                  <th>Year</th>
-                  <th>Links</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>ComFiM: A Cooperative Serious Game to Encourage the Development of Communicative Skills between
-                    Children with Autism</td>
-                  <td>XIII SBGames - Porto Alegre</td>
-                  <td>2014</td>
-                  <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <a
-                      href="files/pdf/presentation_sbgames2014.pdf" target="_blank">PDF</a></td>
-                </tr>
-                <tr>
-                  <td>Dificuldade Adaptativa em Jogos - Considerando jogadores casuais e hardcore</td>
-                  <td>Semana de Ci&ecirc;ncia e Tecnologia - UniRio</td>
-                  <td>2014</td>
-                  <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <a
-                      href="files/pdf/presentation_unirio2014.pdf" target="_blank">PDF</a></td>
-                </tr>
-                <tr>
-                  <td>Evaluating dynamic difficulty adaptivity in shoot'em up games</td>
-                  <td>XII SBGames - S&atilde;o Paulo</td>
-                  <td>2013</td>
-                  <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <a
-                      href="files/pdf/presentation_sbgames2013.pdf" target="_blank">PDF</a></td>
-                </tr>
-                <tr>
-                  <td>Um estudo sobre adaptividade din&acirc;mica de dificuldade em jogos</td>
-                  <td>M.Sc. presentation - PUC-Rio</td>
-                  <td>2012</td>
-                  <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <a href="files/pdf/presentation_defense.pdf"
-                      target="_blank">PDF</a></td>
                 </tr>
               </tbody>
             </table>

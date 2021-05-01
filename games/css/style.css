@@ -29,3 +29,17 @@ video {
 	width: 100%;
 	height: 100%;
 }
+
+.imageWrapper {
+	text-align: center;
+}
+
+.imageWrapper img {
+	max-width: 100%;
+	width: auto;
+	height: auto;
+}
+
+.imageWrapper p {
+	font-style: italic;
+}

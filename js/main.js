@@ -10,16 +10,11 @@ document.addEventListener("DOMContentLoaded", function(){
     sections["research"] = document.getElementById("research");
     sections["games"] = document.getElementById("games");
     sections["rpg"] = document.getElementById("rpg");
-
-    // nav_items["contacts"] = document.getElementById("nav-contacts");
-    // nav_items["research"] = document.getElementById("nav-research");
-    // nav_items["games"] = document.getElementById("nav-games");
-    // nav_items["rpg"] = document.getElementById("nav-rpg");
-
+    
     showOnly("contacts");
   }); 
 
-  function showOnly(sectionId) {
+function showOnly(sectionId) {
       for (let section of Object.values(sections)) {
         if(section.id === sectionId)
         {
@@ -32,4 +27,4 @@ document.addEventListener("DOMContentLoaded", function(){
           // nav_items[section.id].removeClass("active");
         }
       }
-  }
+}

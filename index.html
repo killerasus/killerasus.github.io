@@ -16,17 +16,17 @@
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
 
   <link rel="author" href="humans.txt" />
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/731d241d29.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/3.11.7/modernizr.min.js"></script>
 
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
@@ -42,20 +42,20 @@
 
     <header>
       <h1>Bruno Ba&egrave;re, M.Sc. Computer Science, B.Sc. Computer Engineering</h1>
-      <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark" id="main-navbar">
+      <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark" id="main-navbar">
         <div class="container-fluid">
-          <button class="navbar-toggler" type="button" title="navbar-button" data-toggle="collapse" data-target="#main-nav">
+          <button class="navbar-toggler" type="button" title="navbar-button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="main-nav">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-0">
               <li class="nav-item active" id='nav-contacts'><a class="nav-link" onclick="showOnly('contacts')">Contact</a></li>
               <li class="nav-item" id='nav-research'><a class="nav-link" onclick="showOnly('research')">Publications</a></li>
               <li class="nav-item" id='nav-games'><a class="nav-link" onclick="showOnly('games')">Games</a></li>
               <li class="nav-item" id='nav-rpg'><a class="nav-link" onclick="showOnly('rpg')">RPG</a></li>
             </ul>
           </div>
-          <button class="btn-toggle">Toggle Dark-Mode</button>
+          <button class="btn-toggle me-0"><i class="fa fa-lightbulb" aria-hidden="true" aria-label="Toggle Dark-Mode"></i></button>
         </div>
       </nav>
     </header>
@@ -63,7 +63,7 @@
     <section id="contacts">
 
       <div class="row">
-        <div class="col-sm-3 col-md-6 col-sm-4">
+        <div class="col-md-6 col-sm-4">
           <section id="qrcode">
             <h2>Contact:</h2>
             <p>
@@ -72,7 +72,7 @@
             </p>
           </section>
         </div>
-        <div class="col-sm-6 col-md-6 col-sm-8">
+        <div class="col-md-6 col-sm-8">
           <section id="certifications">
             <h2>Certifications:</h2>
             <p>

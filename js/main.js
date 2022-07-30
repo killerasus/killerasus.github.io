@@ -1,9 +1,9 @@
-var sections = [];
-var nav_items = [];
+let sections = [];
+let nav_items = [];
 
 document.addEventListener("DOMContentLoaded", function(){
     // add padding top to show content behind navbar
-    navbar_height = document.querySelector('.navbar').offsetHeight;
+    let navbar_height = document.querySelector('.navbar').offsetHeight;
     document.body.style.paddingTop = navbar_height + 'px';
 
     sections["contacts"] = document.getElementById("contacts");
@@ -19,12 +19,10 @@ function showOnly(sectionId) {
         if(section.id === sectionId)
         {
           section.style.display = "inline";
-          // nav_items[section.id].addClass("active");
         }
         else
         {
           section.style.display = "none";
-          // nav_items[section.id].removeClass("active");
         }
       }
 }

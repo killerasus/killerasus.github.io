@@ -15,14 +15,14 @@ document.addEventListener("DOMContentLoaded", function(){
   }); 
 
 function showOnly(sectionId) {
-      for (let section of Object.values(sections)) {
-        if(section.id === sectionId)
-        {
-          section.style.display = "inline";
-        }
-        else
-        {
-          section.style.display = "none";
-        }
-      }
+  for (let section of Object.values(sections)) {
+    if(section.id === sectionId)
+    {
+      section.style.display = "inline";
+    }
+    else
+    {
+      section.style.display = "none";
+    }
+  }
 }

@@ -9,6 +9,17 @@ if (currentTheme == "dark") {
   document.body.classList.toggle("light-theme");
 }
 
+let changeIcons = (toTheme) => {
+  let itch_icon = document.getElementById("itchio_icon");
+  if(itch_icon)
+    if (toTheme == "dark")
+      itch_icon.src = "https://static.itch.io/images/itchio-textless-white.svg";
+    else
+      itch_icon.src = "https://static.itch.io/images/itchio-textless-black.svg";
+}
+
+changeIcons(currentTheme);
+
 btn.addEventListener("click", function () {
   if (prefersDarkScheme.matches) {
     document.body.classList.toggle("light-theme");
@@ -22,17 +33,7 @@ btn.addEventListener("click", function () {
       : "light";
   }
 
-  let itch_icon = document.getElementById("itchio_icon");
-  if(itch_icon)
-  {
-    console.log("Achou icone");
-    if (theme == "dark") {
-      console.log("Tema == dark");
-      itch_icon.src = "https://static.itch.io/images/itchio-textless-white.svg";
-    } else {
-      itch_icon.src = "https://static.itch.io/images/itchio-textless-black.svg";
-    }
-  }
+  changeIcons(theme);
 
   localStorage.setItem("theme", theme);
 });

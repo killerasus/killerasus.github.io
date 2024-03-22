@@ -97,6 +97,11 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+/* https://jameshfisher.com/2024/03/12/a-formula-for-responsive-font-size */
+:root {
+    font-size: calc(1rem + 0.25vw);
+}
+
 #presentations tr td:nth-child(1){
     width: 60%
 }

@@ -112,6 +112,14 @@ img.icon {
     width: 40px;
 }
 
+img.orcid {
+    width: 1em;
+}
+
+a.orcid {
+    vertical-align: top;
+}
+
 /* ==========================================================================
    Dark mode
    ========================================================================== */
@@ -119,6 +127,7 @@ img.icon {
 body {
     --text-color: #222;
     --bkg-color: #fff;
+    background: var(--bkg-color);
 }
 
 body.dark-theme {
@@ -140,10 +149,6 @@ body.dark-theme {
   
 * {
     font-family: Arial, Helvetica, sans-serif;
-}
-  
-body {
-    background: var(--bkg-color);
 }
   
 h1,

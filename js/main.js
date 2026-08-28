@@ -1,28 +1,65 @@
-let sections = [];
-let nav_items = [];
+const validSections = ["contacts", "research", "games", "rpg"];
 
-document.addEventListener("DOMContentLoaded", function(){
-    // add padding top to show content behind navbar
-    let navbar_height = document.querySelector('.navbar').offsetHeight;
-    document.body.style.paddingTop = navbar_height + 'px';
+function updateNavbarHeight() {
+  const navbar = document.querySelector(".navbar");
+  if (navbar) {
+    document.body.style.paddingTop = navbar.offsetHeight + "px";
+  }
+}
 
-    sections["contacts"] = document.getElementById("contacts");
-    sections["research"] = document.getElementById("research");
-    sections["games"] = document.getElementById("games");
-    sections["rpg"] = document.getElementById("rpg");
-    
-    showOnly("contacts");
-  }); 
+function showSection(sectionId) {
+  if (!validSections.includes(sectionId)) {
+    sectionId = "contacts";
+  }
 
-function showOnly(sectionId) {
-  for (let section of Object.values(sections)) {
-    if(section.id === sectionId)
-    {
-      section.style.display = "inline";
+  // Update section visibility
+  validSections.forEach(function (id) {
+    const el = document.getElementById(id);
+    const navItem = document.getElementById("nav-" + id);
+    if (el) {
+      if (id === sectionId) {
+        el.style.display = "block";
+        el.removeAttribute("hidden");
+      } else {
+        el.style.display = "none";
+        el.setAttribute("hidden", "until-found");
+      }
     }
-    else
-    {
-      section.style.display = "none";
+    if (navItem) {
+      if (id === sectionId) {
+        navItem.classList.add("active");
+        const link = navItem.querySelector(".nav-link");
+        if (link) link.setAttribute("aria-current", "page");
+      } else {
+        navItem.classList.remove("active");
+        const link = navItem.querySelector(".nav-link");
+        if (link) link.removeAttribute("aria-current");
+      }
+    }
+  });
+
+  // Collapse mobile navbar if open
+  const mainNav = document.getElementById("main-nav");
+  if (mainNav && mainNav.classList.contains("show")) {
+    if (typeof bootstrap !== "undefined" && bootstrap.Collapse) {
+      const bsCollapse = bootstrap.Collapse.getInstance(mainNav) || new bootstrap.Collapse(mainNav, { toggle: false });
+      bsCollapse.hide();
+    } else {
+      mainNav.classList.remove("show");
     }
   }
 }
+
+function handleRoute() {
+  const hash = window.location.hash.replace("#", "").trim();
+  const target = validSections.includes(hash) ? hash : "contacts";
+  showSection(target);
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+  updateNavbarHeight();
+  window.addEventListener("resize", updateNavbarHeight);
+  window.addEventListener("hashchange", handleRoute);
+  handleRoute();
+});
+

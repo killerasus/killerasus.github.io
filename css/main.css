@@ -83,23 +83,25 @@ textarea {
 }
 
 /* ==========================================================================
-   Browse Happy prompt
-   ========================================================================== */
-
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
-
-/* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
-/* https://jameshfisher.com/2024/03/12/a-formula-for-responsive-font-size */
 :root {
     font-size: calc(1rem + 0.25vw);
+    --text-color: #222;
+    --bkg-color: #fff;
+}
+
+:root.dark-theme,
+body.dark-theme {
+    --text-color: #eee;
+    --bkg-color: #121212;
+}
+
+:root.light-theme,
+body.light-theme {
+    --text-color: #222;
+    --bkg-color: #fff;
 }
 
 #presentations tr td:nth-child(1){
@@ -109,7 +111,8 @@ textarea {
 img.icon {
     align-self: center;
     height: 30px;
-    width: 40px;
+    width: 30px;
+    object-fit: contain;
 }
 
 img.orcid {
@@ -125,26 +128,8 @@ a.orcid {
    ========================================================================== */
 
 body {
-    --text-color: #222;
-    --bkg-color: #fff;
     background: var(--bkg-color);
-}
-
-body.dark-theme {
-    --text-color: #eee;
-    --bkg-color: #121212;
-}
-
-@media (prefers-color-scheme: dark) {
-    /* defaults to dark theme */
-    body {
-      --text-color: #eee;
-      --bkg-color: #121212;
-    }
-    body.light-theme {
-      --text-color: #222;
-      --bkg-color: #fff;
-    }
+    color: var(--text-color);
 }
   
 * {

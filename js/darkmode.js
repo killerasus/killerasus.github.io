@@ -1,39 +1,36 @@
 const btn = document.querySelector(".btn-toggle");
 const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-let theme;
 
-const currentTheme = localStorage.getItem("theme");
-if (currentTheme == "dark") {
-  document.body.classList.toggle("dark-theme");
-} else {
-  document.body.classList.toggle("light-theme");
-}
-
-let changeIcons = (toTheme) => {
-  let itch_icon = document.getElementById("itchio_icon");
-  if(itch_icon)
-    if (toTheme == "dark")
-      itch_icon.src = "https://static.itch.io/images/itchio-textless-white.svg";
-    else
-      itch_icon.src = "https://static.itch.io/images/itchio-textless-black.svg";
-}
-
-changeIcons(currentTheme);
-
-btn.addEventListener("click", function () {
-  if (prefersDarkScheme.matches) {
-    document.body.classList.toggle("light-theme");
-    theme = document.body.classList.contains("light-theme")
-      ? "light"
-      : "dark";
-  } else {
-    document.body.classList.toggle("dark-theme");
-    theme = document.body.classList.contains("dark-theme")
-      ? "dark"
-      : "light";
+function getPreferredTheme() {
+  const storedTheme = localStorage.getItem("theme");
+  if (storedTheme) {
+    return storedTheme;
   }
+  return prefersDarkScheme.matches ? "dark" : "light";
+}
 
-  changeIcons(theme);
+function applyTheme(theme) {
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark-theme");
+    document.documentElement.classList.remove("light-theme");
+    document.body.classList.add("dark-theme");
+    document.body.classList.remove("light-theme");
+  } else {
+    document.documentElement.classList.add("light-theme");
+    document.documentElement.classList.remove("dark-theme");
+    document.body.classList.add("light-theme");
+    document.body.classList.remove("dark-theme");
+  }
+}
 
-  localStorage.setItem("theme", theme);
-});
+// Initial sync
+applyTheme(getPreferredTheme());
+
+if (btn) {
+  btn.addEventListener("click", function () {
+    const currentTheme = document.documentElement.classList.contains("dark-theme") ? "dark" : "light";
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    applyTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+  });
+}

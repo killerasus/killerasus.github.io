@@ -1,89 +1,200 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bruno Baere - Games - M.O.L.D.</title>
+  <title>M.O.L.D. (2010) — Bruno Ba&egrave;re</title>
+  <meta name="description" content="M.O.L.D. (M.O.L.D.'s Our Last Defense) is a 3D arcade retro reimagining of Space Invaders developed in Unity 2.6 as a cross-department collaboration between Computer Science and Design at PUC-Rio.">
+  <meta name="keywords" content="MOLD, Unity 3D, Space Invaders, Retro Arcade, PUC-Rio, Bruno Baere, Game Development">
+  <meta name="author" content="Bruno Ba&egrave;re">
+  <link rel="canonical" href="https://killerasus.github.io/games/mold/mold.html">
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="M.O.L.D. (2010) — Bruno Ba&egrave;re">
+  <meta property="og:description" content="3D reimagining of Space Invaders built in Unity 2.6 at PUC-Rio.">
+  <meta property="og:url" content="https://killerasus.github.io/games/mold/mold.html">
+  <meta property="og:image" content="https://killerasus.github.io/images/games/mold/MOLD.png">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="M.O.L.D. (2010) — Bruno Ba&egrave;re">
+  <meta name="twitter:description" content="3D reimagining of Space Invaders built in Unity 2.6 at PUC-Rio.">
+  <meta name="twitter:image" content="https://killerasus.github.io/images/games/mold/MOLD.png">
 
-    <link rel="author" href="../../humans.txt" />
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "M.O.L.D.",
+    "alternateName": "M.O.L.D.'s Our Last Defense",
+    "description": "A 3D reimagining of classic arcade Space Invaders developed in Unity 2.6.",
+    "genre": ["Arcade", "Retro", "Shooter"],
+    "gameEngine": "Unity 3D 2.6",
+    "author": {
+      "@type": "Person",
+      "name": "Bruno Baère",
+      "url": "https://killerasus.github.io/"
+    },
+    "datePublished": "2010",
+    "url": "https://killerasus.github.io/games/mold/mold.html"
+  }
+  </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <!-- Prevent dark mode theme flash before render -->
+  <script>
+    (function() {
+      var savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark-theme');
+      } else if (savedTheme === 'light') {
+        document.documentElement.classList.add('light-theme');
+      }
+    })();
+  </script>
 
-    <script src="../../js/plugins.js"></script>
-    <script src="../../js/main.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/games.css">
 
+  <link rel="author" href="../../humans.txt" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" defer></script>
+  <script src="https://kit.fontawesome.com/731d241d29.js" crossorigin="anonymous" defer></script>
+  <script src="../../js/darkmode.js" defer></script>
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-    <!-- Add your site or application content here -->
-    <div class="container">
-
-    <header>
-      <h1>M.O.L.D.</h1>
-    </header>
-
-    <section id="main">
-        <p>M.O.L.D. was a project developed by students from Arts & Design and Computer Science departments for the classes INF2607 (Animation for Computer and Games) from PUC-Rio's Computer Science grad school and DSG1432 (Computer Graphics and Technology for Games) from PUC-Rio's bachelor in Design.</p>
-
-        <p>The game was developed in Unity 2.6 and it is a 3D re-imagining of the classic Space Invaders. For the INF2607 class, it was demanded that student modeled and animated characters were loaded into a scene in the Unity engine, while for DSG1432 students should recreate a stage from an 80's classic game. As both classes were using Unity for the first time (and I was watching the design classes as I knew some of the students), we decided to mix the assignments into one project involving students from both departments. So M.O.L.D. was born.</p>
-
-        <p>M.O.L.D. is the name of the player controlled cannon, used to destroy the alien invaders. It's also a recursive acronym for M.O.L.D.'s Our Last Defense.</p>
-
-        <div class="row justify-content-around">
-            <div class="col-lg-10 imageWrapper">
-                <img src="img/MOLD.png" alt="MOLD Menu screen">
-            </div>
+  <!-- Fixed Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-md fixed-top" id="main-navbar">
+      <div class="container">
+        <a class="navbar-brand-title" href="../../index.html#games">
+          Bruno Ba&egrave;re <span>// Portfolio</span>
+        </a>
+        <div class="ms-auto d-flex align-items-center gap-3">
+          <a class="nav-back-link" href="../../index.html#games">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Games
+          </a>
+          <button class="btn-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+            <i class="fa fa-moon" id="theme-icon" aria-hidden="true"></i>
+          </button>
         </div>
-    </section>
+      </div>
+    </nav>
+  </header>
 
-	<br>
+  <main class="page-wrapper container py-4">
+    <!-- Breadcrumbs -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Portfolio</a></li>
+        <li class="breadcrumb-item"><a href="../../index.html#games">Games</a></li>
+        <li class="breadcrumb-item active" aria-current="page">M.O.L.D.</li>
+      </ol>
+    </nav>
 
-    <section id="info">
-        <div class="infobox">
-            <h1>M.O.L.D.</h1>
+    <!-- Header Banner -->
+    <div class="game-header-banner">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+        <h1 class="game-title mb-0">M.O.L.D.</h1>
+        <span class="game-year-badge">2010</span>
+      </div>
+      <div class="game-tag-list">
+        <span class="hero-tag">Unity 3D 2.6</span>
+        <span class="hero-tag">Arcade Retro</span>
+        <span class="hero-tag">3D Space Invaders</span>
+        <span class="hero-tag">PUC-Rio Academic Project</span>
+      </div>
+    </div>
 
+    <!-- Two-Column Layout -->
+    <div class="row g-4">
+      <!-- Main Content Column -->
+      <div class="col-lg-8">
+        <article class="game-content-card">
+          <h2 class="section-heading">
+            <i class="fa fa-rocket text-primary me-2" aria-hidden="true"></i>About M.O.L.D.
+          </h2>
+          <p>
+            <strong>M.O.L.D.</strong> was developed as a cross-disciplinary collaborative project uniting students from PUC-Rio's Arts &amp; Design Department and Computer Science Department across two courses: <em>INF2607 (Animation for Computers and Games)</em> from Computer Science graduate school and <em>DSG1432 (Computer Graphics and Technology for Games)</em> from the Bachelor in Design.
+          </p>
+          <p>
+            Built using <strong>Unity 2.6</strong>, the project represents a stylized 3D reimagining of the classic arcade title <em>Space Invaders</em>. For INF2607, students modeled, rigged, and animated custom characters to load dynamically into Unity scenes, while DSG1432 required students to recreate and modernize an 80s arcade stage. We combined both assignments into a unified joint production.
+          </p>
+
+          <div class="highlight-callout">
             <p>
-                Engine: Unity 3D 2.6<br>
-                Programming: Bruno Ba&egrave;re<br>
-                Level designer: Arthur Protasio<br>
-                Enemies modeling: Gabriel Lopes<br>
-                Main character modeling: Bernardo Curvello<br>
-                Texturing: Leonardo Meireles<br>
-                <br>
-                Download: <a href="https://killerasus.itch.io/mold" target="_blank" rel="noopener">https://killerasus.itch.io/mold</a><br>
-                <br>
-                This project used a music made by the artist <a href="http://en.wikipedia.org/wiki/Zhaytee" target="_blank" rel="noopener">ZhayTee</a>.
+              <i class="fa fa-shield-alt me-2 text-primary" aria-hidden="true"></i>
+              <strong>M.O.L.D.</strong> represents both the player-controlled mobile defense cannon and a recursive acronym: <em>"M.O.L.D.'s Our Last Defense"</em>.
             </p>
+          </div>
+
+          <div class="game-media-frame">
+            <img src="img/MOLD.png" alt="M.O.L.D. Title and Gameplay Screen" width="700" height="400" loading="lazy">
+            <p class="game-media-caption">M.O.L.D. main screen displaying custom 3D models and retro arcade arena styling.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Sticky Specs & Credits Sidebar -->
+      <aside class="col-lg-4">
+        <div class="game-sidebar-sticky">
+          <div class="game-spec-card">
+            <h2 class="spec-card-title">
+              <i class="fa fa-info-circle text-primary me-2" aria-hidden="true"></i>Project Credits
+            </h2>
+
+            <div class="spec-list">
+              <div class="spec-item">
+                <span class="spec-label">Engine</span>
+                <span class="spec-value">Unity 3D 2.6</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Programming</span>
+                <span class="spec-value">Bruno Ba&egrave;re</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Level Designer</span>
+                <span class="spec-value">Arthur Protasio</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">3D Enemy Modeling</span>
+                <span class="spec-value">Gabriel Lopes</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Main Character Modeling</span>
+                <span class="spec-value">Bernardo Curvello</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Texturing</span>
+                <span class="spec-value">Leonardo Meireles</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Soundtrack</span>
+                <span class="spec-value"><a href="https://en.wikipedia.org/wiki/Zhaytee" target="_blank" rel="noopener">ZhayTee</a></span>
+              </div>
+            </div>
+
+            <div class="spec-actions">
+              <a class="btn-pill btn-pill-primary" href="https://killerasus.itch.io/mold" target="_blank" rel="noopener">
+                <i class="fa fa-download" aria-hidden="true"></i> Download Game (Itch.io)
+              </a>
+            </div>
+          </div>
         </div>
-    </section>
-	
-    <br>
+      </aside>
+    </div>
+  </main>
 
-    <footer>
-      <p>Last updated: July 30th, 2022.</p>
-    </footer>
-
-  </div>
-
+  <footer class="text-center py-4 border-top">
+    <div class="container">
+      <p class="text-muted mb-0">Last updated: August 2026 &bull; &copy; Bruno Ba&egrave;re</p>
+    </div>
+  </footer>
 </body>
 
 </html>

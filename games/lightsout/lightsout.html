@@ -1,103 +1,227 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
+<html lang="en">
 
 <head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bruno Baere - Games - Lights Out</title>
+  <title>Lights Out (2012) — Bruno Ba&egrave;re</title>
+  <meta name="description" content="Lights Out is an award-winning art puzzle game exploring perception, predator and prey dynamics, and player choices in a Belle Époque Parisian manor. Selected for FILE Games 2012 and 3rd place at SBGames 2011.">
+  <meta name="keywords" content="Lights Out, Art Game, Puzzle Game, Game Maker, SBGames 2011, FILE Games 2012, Gamecraft, Bruno Baere">
+  <meta name="author" content="Bruno Ba&egrave;re">
+  <link rel="canonical" href="https://killerasus.github.io/games/lightsout/lightsout.html">
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lights Out (2012) — Bruno Ba&egrave;re">
+  <meta property="og:description" content="Award-winning art puzzle game exploring predator/prey dynamics in a Belle Époque Paris manor.">
+  <meta property="og:url" content="https://killerasus.github.io/games/lightsout/lightsout.html">
+  <meta property="og:image" content="https://killerasus.github.io/images/games/lightsout/pop_art_3.png">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lights Out (2012) — Bruno Ba&egrave;re">
+  <meta name="twitter:description" content="Award-winning art puzzle game exploring predator/prey dynamics in a Belle Époque Paris manor.">
+  <meta name="twitter:image" content="https://killerasus.github.io/images/games/lightsout/pop_art_3.png">
 
-    <link rel="author" href="../../humans.txt" />
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Lights Out",
+    "description": "Award-winning art puzzle game exploring perception and predator/prey chase dynamics.",
+    "genre": ["Puzzle", "Art Game", "Stealth"],
+    "gameEngine": "Game Maker 8.1",
+    "author": {
+      "@type": "Person",
+      "name": "Bruno Baère",
+      "url": "https://killerasus.github.io/"
+    },
+    "award": "3rd Place People's Choice Art Game - SBGames 2011",
+    "datePublished": "2012",
+    "url": "https://killerasus.github.io/games/lightsout/lightsout.html"
+  }
+  </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <!-- Prevent dark mode theme flash before render -->
+  <script>
+    (function() {
+      var savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark-theme');
+      } else if (savedTheme === 'light') {
+        document.documentElement.classList.add('light-theme');
+      }
+    })();
+  </script>
 
-    <script src="../../js/plugins.js"></script>
-    <script src="../../js/main.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/games.css">
 
+  <link rel="author" href="../../humans.txt" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" defer></script>
+  <script src="https://kit.fontawesome.com/731d241d29.js" crossorigin="anonymous" defer></script>
+  <script src="../../js/darkmode.js" defer></script>
 </head>
 
 <body>
-	<!--[if lt IE 7]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+  <!-- Fixed Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-md fixed-top" id="main-navbar">
+      <div class="container">
+        <a class="navbar-brand-title" href="../../index.html#games">
+          Bruno Ba&egrave;re <span>// Portfolio</span>
+        </a>
+        <div class="ms-auto d-flex align-items-center gap-3">
+          <a class="nav-back-link" href="../../index.html#games">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Games
+          </a>
+          <button class="btn-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+            <i class="fa fa-moon" id="theme-icon" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-    <!-- Add your site or application content here -->
+  <main class="page-wrapper container py-4">
+    <!-- Breadcrumbs -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Portfolio</a></li>
+        <li class="breadcrumb-item"><a href="../../index.html#games">Games</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Lights Out</li>
+      </ol>
+    </nav>
+
+    <!-- Header Banner -->
+    <div class="game-header-banner">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+        <h1 class="game-title mb-0">Lights Out</h1>
+        <span class="game-year-badge">2012</span>
+      </div>
+      <div class="game-tag-list">
+        <span class="hero-tag">Game Maker 8.1</span>
+        <span class="hero-tag">Art Game</span>
+        <span class="hero-tag">2-Player Asymmetric</span>
+        <span class="hero-tag">SBGames 2011 Award Winner</span>
+        <span class="hero-tag">FILE Games 2012</span>
+      </div>
+    </div>
+
+    <!-- Two-Column Layout -->
+    <div class="row g-4">
+      <!-- Main Content Column -->
+      <div class="col-lg-8">
+        <article class="game-content-card">
+          <h2 class="section-heading">
+            <i class="fa fa-book-open text-primary me-2" aria-hidden="true"></i>Origins & Evolution
+          </h2>
+          <p>
+            <strong>Lights Out</strong> was first presented at <a href="http://devoidgames.com/gamecraft/" target="_blank" rel="noopener">Gamecraft 2011</a> as a cops &amp; robbers tag game in the dark for two players. Originally, the premise centered on a thief who invaded a museum/bank and needed to evade the security guard searching for him after the lights went out. A randomly chosen exit manhole opened after one minute, providing an escape route while both characters managed limited light sources.
+          </p>
+          <p>
+            We subsequently submitted the game to the <a href="http://sbgames.org/sbgames2011" target="_blank" rel="noopener">SBGames 2011 Independent Games Festival</a>, transitioning <em>Lights Out</em> into an evocative art game. The narrative shifted away from cops and robbers toward archetypal <strong>predator and prey</strong> dynamics set inside a <em>Belle &Eacute;poque</em> Parisian manor, with the chase repeating across different historical eras.
+          </p>
+          <p>
+            The game was later curated and accepted at <a href="https://file.org.br/book/file-sp-2012/" target="_blank" rel="noopener">FILE Games 2012</a> (Electronic Language International Festival, S&atilde;o Paulo).
+          </p>
+
+          <div class="highlight-callout">
+            <p>
+              <i class="fa fa-question-circle me-2 text-primary" aria-hidden="true"></i>
+              "Will you hide in darkness or reveal yourself in light? Why is the predator hunting the prey? Is the prey truly the victim? And most importantly: does the player really want to 'win' without knowing the consequences?"
+            </p>
+          </div>
+        </article>
+
+        <!-- Video Showcase -->
+        <article class="game-content-card">
+          <h2 class="section-heading">
+            <i class="fa fa-video text-primary me-2" aria-hidden="true"></i>Trailers & Exhibition Footage
+          </h2>
+
+          <div class="game-video-card">
+            <div class="video-card-title"><i class="fa fa-play-circle me-1 text-primary" aria-hidden="true"></i> Official Game Trailer</div>
+            <div class="video-wrapper-16x9">
+              <iframe title="Lights Out Trailer" src="https://www.youtube.com/embed/7-oemWTfei4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+
+          <div class="game-video-card">
+            <div class="video-card-title"><i class="fa fa-gamepad me-1 text-primary" aria-hidden="true"></i> Mostra Gamecraft 2011 Presentation</div>
+            <div class="video-wrapper-16x9">
+              <iframe title="Mostra Gamecraft 2011" src="https://www.youtube.com/embed/fAegF0Vsecg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+
+          <div class="game-video-card">
+            <div class="video-card-title"><i class="fa fa-microphone me-1 text-primary" aria-hidden="true"></i> Festival Games Brasil Interview</div>
+            <div class="video-wrapper-16x9">
+              <iframe title="Festival Games Brasil Interview" src="https://www.youtube.com/embed/I5lbq8i-NSU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Sticky Specs & Awards Sidebar -->
+      <aside class="col-lg-4">
+        <div class="game-sidebar-sticky">
+          <div class="game-spec-card">
+            <h2 class="spec-card-title">
+              <i class="fa fa-info-circle text-primary me-2" aria-hidden="true"></i>Game Details
+            </h2>
+
+            <div class="spec-list">
+              <div class="spec-item">
+                <span class="spec-label">Engine</span>
+                <span class="spec-value">Game Maker 8.1</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Programming</span>
+                <span class="spec-value">Bruno Ba&egrave;re</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Game Designers</span>
+                <span class="spec-value">Arthur Protasio, Bruno Ba&egrave;re, Leonardo Cardarelli, Rian Rezende, Isabel Ferreira</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Exhibitions</span>
+                <span class="spec-value">GameCraft 2011, SBGames 2011, FILE Games 2012, Festival Games Brasil 2013</span>
+              </div>
+            </div>
+
+            <div class="spec-actions">
+              <a class="btn-pill btn-pill-primary" href="https://fableware.itch.io/lightsout" target="_blank" rel="noopener">
+                <i class="fa fa-download" aria-hidden="true"></i> Download Game (Itch.io)
+              </a>
+            </div>
+          </div>
+
+          <!-- Awards Card -->
+          <div class="game-spec-card text-center">
+            <h2 class="spec-card-title justify-content-center">
+              <i class="fa fa-trophy text-warning me-2" aria-hidden="true"></i>Awards & Recognition
+            </h2>
+            <p class="text-muted small mb-3">Third Place &bull; Art Game People's Choice &bull; SBGames 2011</p>
+            <div class="award-badge-container">
+              <img src="img/pop_art_3.png" alt="Terceiro Colocado - Categoria Art Game - Voto Popular - SBGames 2011 - Festival de Jogos Independentes" class="award-badge-img" loading="lazy">
+              <img src="img/gcBadge.png" alt="Jogo Selecionado GameCraft 2011" class="award-badge-img" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="text-center py-4 border-top">
     <div class="container">
-
-		<header>
-	     	<h1>Lights Out</h1>
-	    </header>
-
-	    <section id="main">
-	    	<p>Lights Out was first presented at <a href="http://devoidgames.com/gamecraft/" target="_blank" rel="noopener">Gamecraft 2011</a> as a cops &amp; robbers tag game in the dark for two players. Originally, our idea was that a thief invaded a museum/bank and needed to evade the cop/security that was searching for him at the moment his partner turned the lights off. A randomly chosen manhole would then be opened after one minute in game providing the thief a mean to escape the museum, but if it took him long to get out, the game would end in draw. The cop and the thief both had limited light sources that would go off with different durations. As it was a task for Gamerama 2011, we were satisfied with the result.</p>
-
-			<p>We then decided to participate in <a href="http://sbgames.org/sbgames2011" target="_blank" rel="noopener">SBGames 2011 Independent Games Festival</a> taking Lights Out as an art game, so changes were needed. Although the mechanics remained the same, the game's narrative suffered a severe overhaul. There would be no more thief and cop, just the concept of predator and prey. The left player would be the predator, the one chasing, and the right player would be the prey, the one trying to escape. Now, the exit would be opened (still randomly) at the beginning of each stage, with less time to the predator find the prey. Each one still denounced their position using their light source. The scenery for each stage is a <em>belle &eacute;poque</em> manor in Paris, with the same predator/prey chase happening at different years.</p>
-
-			<p>This game poses a question regarding players' perception and attitude. Will you hide in the darkness or show yourself with the light? Why is the predator after the prey? Is the prey in fact the victim? Or will it all end in a draw? But most importantly, does the player really want to "win" without truly knowing the consequences of his actions?</p>
-
-			<p>Lights Out was accepted at <a href="https://file.org.br/book/file-sp-2012/" target="_blank" rel="noopener">FILE Games 2012</a> (S&atilde;o Paulo, July 17th to August 19th).</p>
-	    </section>
-
-	    <section id="videos">
-	    	<h2>Videos</h2>
-
-			<div class="videoWrapper">
-				<iframe title="Lights Out Trailer" src="https://www.youtube.com/embed/7-oemWTfei4"></iframe>
-			</div>
-
-			<br>
-			
-			<div class="videoWrapper">
-				<iframe title="Mostra Gamecraft 2011" src="https://www.youtube.com/embed/fAegF0Vsecg"></iframe>
-			</div>
-
-			<br>
-
-			<div class="videoWrapper">
-				<iframe title="Festival Games Brasil Interview" src="https://www.youtube.com/embed/I5lbq8i-NSU"></iframe>
-			</div>
-	    </section>
-		
-		<br>
-
-		<section id="info">
-			<div class="infobox">
-				<h1>Lights Out</h1>
-				<p>
-					Engine: Game Maker 8.1<br>
-					Game Designers: Arthur Protasio, Bruno Ba&egrave;re, Leonardo Cardarelli, Rian Rezende, Isabel Ferreira<br>
-					Programmer: Bruno Ba&egrave;re<br>
-					<br>
-					Download: <a href="https://fableware.itch.io/lightsout" target="_blank" rel="noopener">https://fableware.itch.io/lightsout</a><br>
-					Prizes: Third place in Art Game People's Choice in SBGames 2011<br>
-					Presented at: GameCraft 2011, SBGames 2011, FILE Games 2012, Festival Games Brasil 2013
-				</p>
-				<div style="text-align: center;">
-					<img src="img/pop_art_3.png" alt="Terceiro Colocado - Categoria Art Game - Voto Popular - SBGames 2011 - Festival de Jogos Independentes" width="240px" height="auto" style="margin: 10px;">
-					<img src="img/gcBadge.png" alt="Jogo Selecionado GameCraft 2011" width="240px" height="auto" style="margin: 10px;">
-				</div>
-			</div>
-		</section>
-
-		<br>
-
-		<footer>
-	      <p>Last updated: July 30th, 2022.</p>
-	    </footer>
-
-	</div>
-
+      <p class="text-muted mb-0">Last updated: August 2026 &bull; &copy; Bruno Ba&egrave;re</p>
+    </div>
+  </footer>
 </body>
+
+</html>

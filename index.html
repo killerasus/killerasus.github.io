@@ -85,6 +85,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/games.css">
 
   <link rel="author" href="humans.txt" />
 
@@ -540,5 +541,20 @@
     </div>
   </footer>
 
+  <!-- Game Detail Drawer -->
+  <div id="game-drawer-overlay" class="game-drawer-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="game-drawer-title">
+    <div id="game-drawer" class="game-drawer" role="document">
+      <header class="game-drawer-header">
+        <button id="game-drawer-close" class="game-drawer-close" aria-label="Close game details">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          <span>Back to Games</span>
+        </button>
+        <span id="game-drawer-title" class="game-drawer-title"></span>
+      </header>
+      <div id="game-drawer-body" class="game-drawer-body"></div>
+    </div>
+  </div>
+
 </body>
+
 </html>

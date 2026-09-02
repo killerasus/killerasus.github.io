@@ -90,19 +90,10 @@ function handleRoute() {
   showSection(target);
 }
 
-// === Toast Notification ===
-function showToast(message) {
-  let toast = document.getElementById("toast-notification");
-  if (!toast) return;
-  toast.textContent = message;
-  toast.classList.add("show");
-  setTimeout(function() {
-    toast.classList.remove("show");
-  }, 2500);
-}
-
 // === Game Content Prefetching ===
 function prefetchGame(slug) {
+  // Skip prefetching if on file:// protocol (CORS restriction)
+  if (window.location.protocol === "file:") return;
   const url = gameSlugMap[slug];
   if (!url || gameCache.has(slug)) return;
   fetch(url)
@@ -161,6 +152,12 @@ function openGameDrawer(slug, pushState) {
   const drawerClose = document.getElementById("game-drawer-close");
   if (!url || !drawerOverlay) return;
 
+  // Fallback to direct navigation if running from local file:// protocol
+  if (window.location.protocol === "file:") {
+    window.location.href = url;
+    return;
+  }
+
   currentOpenSlug = slug;
   lastActiveElement = document.activeElement;
 
@@ -184,13 +181,17 @@ function openGameDrawer(slug, pushState) {
   drawerBody.innerHTML = '<div class="game-drawer-loading"><div class="spinner"></div><p>Loading&hellip;</p></div>';
 
   fetch(url)
-    .then(function(r) { return r.text(); })
+    .then(function(r) {
+      if (!r.ok) throw new Error("HTTP error " + r.status);
+      return r.text();
+    })
     .then(function(html) {
       gameCache.set(slug, html);
       parseAndRenderGameHTML(html, url, slug);
     })
     .catch(function() {
-      if (drawerBody) drawerBody.innerHTML = '<p class="text-muted text-center py-5">Content could not be loaded.</p>';
+      // Graceful fallback to direct navigation if fetch fails for any reason
+      window.location.href = url;
     });
 }
 
@@ -244,7 +245,6 @@ window.addEventListener("DOMContentLoaded", function() {
 
   const drawerOverlay = document.getElementById("game-drawer-overlay");
   const drawerClose = document.getElementById("game-drawer-close");
-  const drawerShare = document.getElementById("game-drawer-share");
 
   if (drawerClose) {
     drawerClose.addEventListener("click", function() { closeGameDrawer(); });
@@ -253,22 +253,6 @@ window.addEventListener("DOMContentLoaded", function() {
   if (drawerOverlay) {
     drawerOverlay.addEventListener("click", function(e) {
       if (e.target === drawerOverlay) closeGameDrawer();
-    });
-  }
-
-  if (drawerShare) {
-    drawerShare.addEventListener("click", function() {
-      if (!currentOpenSlug) return;
-      const shareUrl = window.location.origin + window.location.pathname + "#games/" + currentOpenSlug;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(shareUrl).then(function() {
-          showToast("Link copied to clipboard!");
-        }).catch(function() {
-          showToast(shareUrl);
-        });
-      } else {
-        showToast(shareUrl);
-      }
     });
   }
 

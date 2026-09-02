@@ -900,3 +900,74 @@ body.drawer-open {
     padding: 1.25rem;
   }
 }
+
+/* ==========================================================================
+   SPA Animations & Micro-Interactions
+   ========================================================================== */
+
+/* Section fade-in & slide-up on tab switch */
+.section-fade-in {
+  animation: sectionFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Drawer Share Button */
+.game-drawer-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  border-radius: var(--radius-sm);
+  padding: 0.38rem 0.75rem;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-left: auto;
+}
+
+.game-drawer-share:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--primary-subtle);
+}
+
+/* Toast Notification */
+.toast-notification {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 3000;
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  pointer-events: none;
+}
+
+.toast-notification.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}

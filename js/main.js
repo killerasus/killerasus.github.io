@@ -65,6 +65,12 @@ function showSection(sectionId) {
       mainNav.classList.remove("show");
     }
   }
+
+  // Reset scroll position on tab switch so new section starts at top.
+  // Respect prefers-reduced-motion for smooth scrolling.
+  if (typeof window.scrollTo === "function") {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }
 }
 
 function handleRoute() {
@@ -127,6 +133,33 @@ function parseAndRenderGameHTML(html, url, slug) {
     const src = img.getAttribute("src");
     if (src && !src.startsWith("http") && !src.startsWith("/") && !src.startsWith("data:")) {
       img.setAttribute("src", gameDir + src);
+    }
+  });
+
+  // Rewrite relative links so they work from the index page drawer context.
+  // - ../../index.html#section -> #section (SPA route, no reload)
+  // - ../../<path> -> <path> (site-root relative)
+  // - other relative hrefs -> resolved against gameDir
+  main.querySelectorAll("a[href]").forEach(function(link) {
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("http") || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("data:")) {
+      return;
+    }
+    if (href.startsWith("../../index.html")) {
+      const hashPart = href.slice("../../index.html".length);
+      link.setAttribute("href", hashPart ? hashPart : "#games");
+      return;
+    }
+    if (href.startsWith("../../")) {
+      link.setAttribute("href", href.slice("../../".length));
+      return;
+    }
+    if (!href.startsWith("/") && !href.startsWith("../../")) {
+      // Bare relative link (e.g. img/foo.png, files/...) — resolve against game page dir
+      // but skip pure fragments already handled above.
+      if (!href.startsWith("#")) {
+        link.setAttribute("href", gameDir + href);
+      }
     }
   });
 
@@ -256,11 +289,37 @@ window.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // Keyboard navigation inside drawer
+  // Keyboard navigation inside drawer: Escape to close, Tab trap for focus
   document.addEventListener("keydown", function(e) {
+    const overlay = document.getElementById("game-drawer-overlay");
+    if (!overlay || !overlay.classList.contains("is-open")) return;
+
     if (e.key === "Escape") {
-      const overlay = document.getElementById("game-drawer-overlay");
-      if (overlay && overlay.classList.contains("is-open")) closeGameDrawer();
+      closeGameDrawer();
+      return;
+    }
+
+    if (e.key === "Tab") {
+      const drawer = document.getElementById("game-drawer");
+      if (!drawer) return;
+      const focusableSelectors = 'a[href], button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])';
+      const focusable = Array.prototype.slice.call(drawer.querySelectorAll(focusableSelectors))
+        .filter(function(el) { return el.getClientRects().length > 0; });
+      if (focusable.length === 0) {
+        e.preventDefault();
+        const closeBtn = document.getElementById("game-drawer-close");
+        if (closeBtn) closeBtn.focus();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
   });
 

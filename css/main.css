@@ -921,3 +921,48 @@ body.drawer-open {
   }
 }
 
+/* ==========================================================================
+   Accessibility: Focus Visible & Reduced Motion
+   ========================================================================== */
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.btn-pill:focus-visible,
+.social-btn:focus-visible,
+.nav-link:focus-visible,
+.btn-toggle:focus-visible,
+.game-drawer-close:focus-visible,
+.cert-item:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--primary-subtle);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .game-card:hover,
+  .social-btn:hover,
+  .btn-pill-primary:hover,
+  .btn-pill-outline:hover,
+  .cert-item:hover,
+  .game-card:hover .game-media img {
+    transform: none !important;
+  }
+}
+

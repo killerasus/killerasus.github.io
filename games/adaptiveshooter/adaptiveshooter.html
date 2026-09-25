@@ -10,6 +10,11 @@
   <meta name="keywords" content="Adaptive Shooter, Dynamic Difficulty Adaptivity, Game AI, C++, ClanLib, Lua, Game Development, PUC-Rio, Bruno Baere">
   <meta name="author" content="Bruno Ba&egrave;re">
   <link rel="canonical" href="https://killerasus.github.io/games/adaptiveshooter/adaptiveshooter.html">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0f17">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -55,6 +60,9 @@
     })();
   </script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../css/main.css">
   <link rel="stylesheet" href="../../css/games.css">
@@ -67,6 +75,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <!-- Fixed Navbar -->
   <header>
     <nav class="navbar navbar-expand-md fixed-top" id="main-navbar">
@@ -86,7 +95,7 @@
     </nav>
   </header>
 
-  <main class="page-wrapper container py-4">
+  <main class="page-wrapper container py-4" id="main-content" tabindex="-1">
     <!-- Breadcrumbs -->
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
@@ -143,7 +152,7 @@
           </p>
 
           <div class="game-media-frame">
-            <img src="img/adaptive_shooter_debug.gif" alt="Adaptive Shooter in debug mode showcasing real-time variables and hitboxes" width="600" height="400" loading="lazy">
+            <img src="../../images/games/adaptiveshooter/adaptive_shooter_debug.gif" alt="Adaptive Shooter in debug mode showcasing real-time variables and hitboxes" width="600" height="400" loading="lazy">
             <p class="game-media-caption">Real-time debug mode rendering observed performance variables, bounding boxes, and collision layers.</p>
           </div>
         </article>

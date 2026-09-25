@@ -1,4 +1,7 @@
 // === Section Routing ===
+// Wrapped in IIFE to avoid leaking globals.
+(function() {
+"use strict";
 const validSections = ["contacts", "research", "games", "rpg"];
 
 const gameSlugMap = {
@@ -348,3 +351,5 @@ window.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+})();
+

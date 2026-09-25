@@ -1,10 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+/* Fonts are loaded via <link> in HTML heads for faster first paint.
+   See index.html / games/*/*.html preconnect + Plus Jakarta Sans stylesheet.
+   --font-sans keeps system fallbacks if the webfont is unavailable. */
 
 /* ==========================================================================
    Design System & Theme Tokens
    ========================================================================== */
 
 :root {
+  color-scheme: light;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --bg-body: #f8fafc;
   --bg-card: #ffffff;
@@ -37,6 +40,7 @@
 
 :root.dark-theme,
 body.dark-theme {
+  color-scheme: dark;
   --bg-body: #0b0f17;
   --bg-card: #131b28;
   --bg-card-hover: #172233;
@@ -600,14 +604,27 @@ body.dark-theme .navbar-toggler-icon {
   justify-content: center;
 }
 
-.game-media img {
+.game-media img,
+.game-media picture {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
 
-.game-card:hover .game-media img {
+.game-media picture {
+  display: block;
+}
+
+.game-media picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.game-card:hover .game-media img,
+.game-card:hover .game-media picture {
   transform: scale(1.05);
 }
 
@@ -931,6 +948,31 @@ body.drawer-open {
   border-radius: 4px;
 }
 
+/* Skip link: visually hidden until focused */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 3000;
+  background: var(--primary);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  text-decoration: none !important;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 1rem;
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+  color: #ffffff !important;
+}
+
 .btn-pill:focus-visible,
 .social-btn:focus-visible,
 .nav-link:focus-visible,
@@ -961,7 +1003,8 @@ body.drawer-open {
   .btn-pill-primary:hover,
   .btn-pill-outline:hover,
   .cert-item:hover,
-  .game-card:hover .game-media img {
+  .game-card:hover .game-media img,
+  .game-card:hover .game-media picture {
     transform: none !important;
   }
 }

@@ -1,3 +1,5 @@
+(function() {
+"use strict";
 const btn = document.querySelector(".btn-toggle");
 const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -23,6 +25,11 @@ function applyTheme(theme) {
     document.body.classList.remove("dark-theme");
   }
 
+  // Keep native form controls, scrollbars and UA widgets in sync.
+  try {
+    document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+  } catch (e) {}
+
   const themeIcon = document.getElementById("theme-icon");
   if (themeIcon) {
     if (isDark) {
@@ -46,4 +53,5 @@ if (btn) {
     localStorage.setItem("theme", newTheme);
   });
 }
+})();
 

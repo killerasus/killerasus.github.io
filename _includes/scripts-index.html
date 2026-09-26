@@ -1,0 +1,12 @@
+  <script src="{{ include.base }}js/icons.js" defer></script>
+  <script src="{{ include.base }}js/main.js" defer></script>
+  <script src="{{ include.base }}js/darkmode.js" defer></script>
+  <noscript>
+    <style>
+      /* Without JS the SPA router cannot switch tabs: show all sections stacked. */
+      #research, #games, #rpg { display: block !important; }
+      section[hidden] { display: block !important; }
+      #main-nav { display: block !important; }
+      .navbar-toggler, .btn-toggle, #game-drawer-overlay { display: none !important; }
+    </style>
+  </noscript>

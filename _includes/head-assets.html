@@ -1,0 +1,20 @@
+  <!-- Prevent dark mode theme flash before render -->
+  <script>
+    (function() {
+      var savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark-theme');
+      } else if (savedTheme === 'light') {
+        document.documentElement.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="{{ include.base }}css/framework.css">
+  <link rel="stylesheet" href="{{ include.base }}css/main.css">
+  <link rel="stylesheet" href="{{ include.base }}css/games.css">
+
+  <link rel="author" href="{{ include.base }}humans.txt" />

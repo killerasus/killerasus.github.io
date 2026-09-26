@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +10,7 @@
   <meta name="keywords" content="Bruno Baere, C++, Software Engineer, Game AI, Dynamic Difficulty Adaptivity, Computer Graphics, CSM, CSPO, Game Development, PUC-Rio">
   <meta name="author" content="Bruno Baère">
   <link rel="canonical" href="https://killerasus.github.io/">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0f17">
+{% include head-icons.html base="" %}
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="profile">
@@ -79,68 +77,13 @@
   }
   </script>
 
-  <!-- Prevent dark mode theme flash before render -->
-  <script>
-    (function() {
-      var savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark-theme');
-      } else if (savedTheme === 'light') {
-        document.documentElement.classList.add('light-theme');
-      }
-    })();
-  </script>
+{% include head-assets.html base="" %}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/games.css">
-
-  <link rel="author" href="humans.txt" />
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" defer></script>
-  <script src="https://kit.fontawesome.com/731d241d29.js" crossorigin="anonymous" defer></script>
-
-  <script src="js/main.js" defer></script>
-  <script src="js/darkmode.js" defer></script>
-  <noscript>
-    <style>
-      /* Without JS the SPA router cannot switch tabs: show all sections stacked. */
-      #research, #games, #rpg { display: block !important; }
-      section[hidden] { display: block !important; }
-      #main-nav { display: block !important; }
-      .navbar-toggler, .btn-toggle, #game-drawer-overlay { display: none !important; }
-    </style>
-  </noscript>
+{% include scripts-index.html base="" %}
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <header>
-    <nav class="navbar navbar-expand-md fixed-top" id="main-navbar">
-      <div class="container">
-        <a class="navbar-brand-title" href="#contacts">
-          Bruno Ba&egrave;re <span>// Portfolio</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="main-nav">
-          <ul class="navbar-nav ms-auto me-3">
-            <li class="nav-item active" id="nav-contacts"><a class="nav-link" href="#contacts">Contact</a></li>
-            <li class="nav-item" id="nav-research"><a class="nav-link" href="#research">Publications</a></li>
-            <li class="nav-item" id="nav-games"><a class="nav-link" href="#games" title="Games Developed">Games</a></li>
-            <li class="nav-item" id="nav-rpg"><a class="nav-link" href="#rpg" title="RPG Publications">RPG</a></li>
-          </ul>
-          <button class="btn-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
-            <i class="fa fa-moon" id="theme-icon" aria-hidden="true"></i>
-          </button>
-        </div>
-      </div>
-    </nav>
-  </header>
+{% include nav-index.html %}
 
   <main class="page-wrapper" id="main-content" tabindex="-1">
 

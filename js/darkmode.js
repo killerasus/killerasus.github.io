@@ -32,12 +32,26 @@ function applyTheme(theme) {
 
   const themeIcon = document.getElementById("theme-icon");
   if (themeIcon) {
+    setThemeIcon(themeIcon, isDark);
+  }
+}
+
+function setThemeIcon(el, isDark) {
+  const name = isDark ? "fa-sun" : "fa-moon";
+  // Inline SVG path (js/icons.js loaded before this script).
+  if (window.__faIcons && window.__faIcons[name] && el.tagName.toLowerCase() === "svg") {
+    el.innerHTML = window.__faIcons[name];
+    el.setAttribute("data-icon", name);
+    return;
+  }
+  // Fallback for <i> elements if the icon renderer hasn't run.
+  if (el.classList) {
     if (isDark) {
-      themeIcon.classList.remove("fa-moon");
-      themeIcon.classList.add("fa-sun");
+      el.classList.remove("fa-moon");
+      el.classList.add("fa-sun");
     } else {
-      themeIcon.classList.remove("fa-sun");
-      themeIcon.classList.add("fa-moon");
+      el.classList.remove("fa-sun");
+      el.classList.add("fa-moon");
     }
   }
 }

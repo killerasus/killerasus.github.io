@@ -58,15 +58,12 @@ function showSection(sectionId) {
     }
   });
 
-  // Collapse mobile navbar if open
+  // Collapse mobile navbar if open (vanilla; no Bootstrap JS dependency)
   const mainNav = document.getElementById("main-nav");
   if (mainNav && mainNav.classList.contains("show")) {
-    if (typeof bootstrap !== "undefined" && bootstrap.Collapse) {
-      const bsCollapse = bootstrap.Collapse.getInstance(mainNav) || new bootstrap.Collapse(mainNav, { toggle: false });
-      bsCollapse.hide();
-    } else {
-      mainNav.classList.remove("show");
-    }
+    mainNav.classList.remove("show");
+    const toggler = document.querySelector(".navbar-toggler");
+    if (toggler) toggler.setAttribute("aria-expanded", "false");
   }
 
   // Reset scroll position on tab switch so new section starts at top.
@@ -179,6 +176,11 @@ function parseAndRenderGameHTML(html, url, slug) {
 
   drawerBody.innerHTML = main.innerHTML;
   drawerBody.scrollTop = 0;
+
+  // Render local SVG icons inside freshly injected drawer content.
+  try {
+    if (window.__faRender) window.__faRender(drawerBody);
+  } catch (e) {}
 }
 
 function openGameDrawer(slug, pushState) {
@@ -281,6 +283,16 @@ window.addEventListener("DOMContentLoaded", function() {
 
   const drawerOverlay = document.getElementById("game-drawer-overlay");
   const drawerClose = document.getElementById("game-drawer-close");
+
+  // Vanilla mobile nav toggle (replaces Bootstrap Collapse JS)
+  const navToggler = document.querySelector(".navbar-toggler");
+  const mainNavEl = document.getElementById("main-nav");
+  if (navToggler && mainNavEl) {
+    navToggler.addEventListener("click", function() {
+      const isOpen = mainNavEl.classList.toggle("show");
+      navToggler.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  }
 
   if (drawerClose) {
     drawerClose.addEventListener("click", function() { closeGameDrawer(); });

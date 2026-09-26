@@ -1,6 +1,7 @@
 /* Fonts are loaded via <link> in HTML heads for faster first paint.
-   See index.html / games/*/*.html preconnect + Plus Jakarta Sans stylesheet.
-   --font-sans keeps system fallbacks if the webfont is unavailable. */
+   See index.html and the game pages for the preconnect + Plus Jakarta Sans
+   stylesheet. The font stack below keeps system fallbacks if the webfont
+   is unavailable. */
 
 /* ==========================================================================
    Design System & Theme Tokens
@@ -276,7 +277,60 @@ body.dark-theme .navbar-toggler-icon {
   font-size: 1.05rem;
   color: var(--text-muted);
   line-height: 1.7;
-  margin-bottom: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Hero identity: portrait + name block */
+.hero-identity {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+}
+
+.hero-identity .hero-title {
+  margin-bottom: 0.25rem;
+}
+
+/* Employment / location / languages line */
+.hero-meta {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 0.75rem;
+}
+
+.exp-note {
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+/* Conference card description line */
+.conf-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 576px) {
+  .hero-identity {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .profile-photo {
+    width: 112px;
+    height: 112px;
+  }
 }
 
 /* Social Icon Buttons */
@@ -311,41 +365,26 @@ body.dark-theme .navbar-toggler-icon {
   box-shadow: var(--shadow-md);
 }
 
+/* Primary social call-to-action (declared after .social-btn so it wins
+   at equal specificity) */
+.social-btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+.social-btn-primary:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
 .social-btn img,
 .social-btn svg {
   width: 18px;
   height: 18px;
-}
-
-/* QR Code Card */
-.qr-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 1.75rem;
-  text-align: center;
-  box-shadow: var(--shadow-md);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.qr-img {
-  background: #ffffff;
-  padding: 0.75rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
-  max-width: 170px;
-  height: auto;
-  margin-bottom: 1rem;
-  transition: var(--transition);
-}
-
-.qr-img:hover {
-  transform: scale(1.03);
 }
 
 /* Certifications Showcase */

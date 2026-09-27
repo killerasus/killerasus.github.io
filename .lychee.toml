@@ -1,0 +1,18 @@
+# lychee link checker configuration.
+# Run locally with: lychee --config .lychee.toml ./_site/**/*.html
+
+# Fail only on real breakage; be lenient with rate limits and archives.
+retry_wait_time = 5
+max_retries = 2
+timeout = 20
+max_concurrency = 8
+
+# Local/private schemes never resolve in CI.
+# (web.archive.org links stay in scope: they are load-bearing.)
+exclude = [
+  "mailto:*",
+]
+
+# Require an explicit 200-series; list 403/429 hosts here only if they
+# prove to be bot-blockers rather than dead links.
+# accept = [200, 201, 202, 203, 204, 206]

@@ -11,7 +11,20 @@ max_concurrency = 8
 # (web.archive.org links stay in scope: they are load-bearing.)
 exclude = [
   "mailto:*",
+  # Bot-blocked but manually verified live:
+  # - globalgamejam.org returns 403 to link checkers
+  # - scholar.google.com returns 403 to link checkers
+  # - player.vimeo.com returns 401 to link checkers (video is public per oEmbed)
+  "https://globalgamejam.org/*",
+  "https://scholar.google.com/*",
+  "https://player.vimeo.com/*",
 ]
+
+# Be gentle with aggressive rate-limiters.
+[hosts."www.gnu.org"]
+concurrency = 2
+request_interval = "2s"
+
 
 # Require an explicit 200-series; list 403/429 hosts here only if they
 # prove to be bot-blockers rather than dead links.

@@ -1068,3 +1068,80 @@ body.drawer-open {
   }
 }
 
+/* ==========================================================================
+   Print: recruiters print profiles. Show everything stacked, ink-friendly.
+   ========================================================================== */
+
+@media print {
+  :root {
+    --bg-body: #ffffff;
+    --bg-card: #ffffff;
+    --text-main: #000000;
+    --text-muted: #333333;
+    --text-light: #555555;
+    --border-color: #cccccc;
+    --primary: #1d4ed8;
+    --primary-text: #1d4ed8;
+    color-scheme: light;
+  }
+
+  /* Reveal all SPA tabs; drop interactive chrome.
+     hidden="until-found" maps to content-visibility:hidden, which suppresses
+     print rendering even when display is forced, so override both. */
+  #research,
+  #games,
+  #rpg {
+    display: block !important;
+    content-visibility: visible !important;
+  }
+
+  section[hidden] {
+    display: block !important;
+    content-visibility: visible !important;
+  }
+
+  #main-navbar,
+  .navbar-toggler,
+  .btn-toggle,
+  .skip-link,
+  #game-drawer-overlay,
+  .game-drawer-close {
+    display: none !important;
+  }
+
+  body {
+    padding-top: 0 !important;
+    background: #ffffff;
+  }
+
+  .page-wrapper {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .hero-card,
+  .pub-card,
+  .game-card,
+  .conf-card,
+  .rpg-card,
+  .cert-card,
+  .resume-card,
+  .game-spec-card {
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  /* Expand destination URLs for key outbound links */
+  .pub-actions a[href^="http"]::after,
+  .game-actions a[href^="http"]::after,
+  .rpg-actions a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    word-break: break-all;
+  }
+
+  .game-drawer-body {
+    overflow: visible;
+  }
+}
+

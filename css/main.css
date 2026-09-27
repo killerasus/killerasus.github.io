@@ -1007,6 +1007,21 @@ body.drawer-open {
   font-size: 0.85rem;
 }
 
+/* Scholar citation stats row */
+.scholar-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.scholar-asof {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-left: 0.25rem;
+}
+
 /* Skip link: visually hidden until focused */
 .skip-link {
   position: fixed;
